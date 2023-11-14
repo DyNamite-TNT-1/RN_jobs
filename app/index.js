@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, ScrollView, SafeAreaView } from "react-native";
+import { View, ScrollView, SafeAreaView, VirtualizedList } from "react-native";
 import { Stack, useRouter } from "expo-router";
 
 import { COLORS, icons, images, SIZES } from "../constants";
@@ -22,11 +22,22 @@ const Home = () => {
             <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%" />
           ),
           headerRight: () => (
-            <ScreenHeaderBtn iconUrl={icons.chevronRight} dimension="100%" />
+            <ScreenHeaderBtn iconUrl={images.profile} dimension="100%" />
           ),
           headerTitle: "",
         }}
       />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View 
+        style = {{
+            flex: 1,
+            padding: SIZES.medium,
+          }}>
+          <Welcome></Welcome>
+          <Popularjobs/>
+          <Nearbyjobs/>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
